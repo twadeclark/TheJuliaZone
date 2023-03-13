@@ -15,6 +15,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private Button noiseButton;
+    private Button pinkNoiseButton;
+
     SeekBar seekbar0;
     SeekBar seekbar1;
     SeekBar seekbar2;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         noiseButton = findViewById(R.id.noiseButton);
         noiseButton.setOnClickListener(view -> startStop("noise"));
+
+        pinkNoiseButton = findViewById(R.id.pinkNoiseButton);
+        pinkNoiseButton.setOnClickListener(view -> startStop("pinkNoise"));
 
         seekbar0 = findViewById(R.id.seekBar0);
         seekbar1 = findViewById(R.id.seekBar1);
