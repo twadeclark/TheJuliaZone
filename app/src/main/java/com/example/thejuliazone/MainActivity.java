@@ -9,13 +9,13 @@ import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button noiseButton;
-    private Button pinkNoiseButton;
 
     SeekBar seekbar0;
     SeekBar seekbar1;
@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private int bufferSize;
 
     private volatile boolean isRunning = false;
+    private double ma = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         noiseButton = findViewById(R.id.noiseButton);
         noiseButton.setOnClickListener(view -> startStop("noise"));
-
-        pinkNoiseButton = findViewById(R.id.pinkNoiseButton);
-        pinkNoiseButton.setOnClickListener(view -> startStop("pinkNoise"));
 
         seekbar0 = findViewById(R.id.seekBar0);
         seekbar1 = findViewById(R.id.seekBar1);
@@ -54,23 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void startStop(String s) {
+        if(isRunning) stop(); else play(s);
+    }
+
+    public void stop() {
+        isRunning = false;
+    }
+
     public void play(String noise) {
         isRunning = true;
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                switch(noise) {
-                    case "noise":
-                        noise();
-                        break;
-                    case "whiteNoise":
-                        whiteNoise();
-                        break;
-                    case "pinkNoise":
-                        pinkNoise();
-                        break;
-                }
+                noise();
             }
         }).start();
     }
@@ -110,62 +107,5 @@ public class MainActivity extends AppCompatActivity {
             random.nextBytes(buffer);
             audioTrack.write(buffer, 0, bufferSize);
         }
-
     }
-
-    public void whiteNoise() {
-        audioTrack.play();
-        byte[] buffer = new byte[bufferSize];
-        Random random = new Random();
-        while (isRunning) {
-            random.nextBytes(buffer);
-            audioTrack.write(buffer, 0, bufferSize);
-        }
-    }
-
-    public void pinkNoise() {
-        audioTrack.play();
-        double[] b = {0.049922035, -0.095993537, 0.050612699, -0.004408786};
-        double[] a = {1, -2.494956002, 2.017265875, -0.522189400};
-        double[] x = {0, 0, 0, 0};
-        double[] y = {0, 0, 0, 0};
-        Random random = new Random();
-        byte[] buffer = new byte[bufferSize];
-        while (isRunning) {
-            for (int i = 0; i < bufferSize; i++) {
-                x[0] = random.nextDouble() - 0.5;
-                y[0] = b[0] * x[0] + b[1] * x[1] + b[2] * x[2] + b[3] * x[3] - a[1] * y[1] - a[2] * y[2] - a[3] * y[3];
-                buffer[i] = (byte) (y[0] * 32767.0);
-                x[3] = x[2];
-                x[2] = x[1];
-                x[1] = x[0];
-                y[3] = y[2];
-                y[2] = y[1];
-                y[1] = y[0];
-            }
-            audioTrack.write(buffer, 0, bufferSize);
-        }
-
-    }
-
-    public void gaussianWhiteNoise() {
-        audioTrack.play();
-        Random random = new Random();
-        byte[] buffer = new byte[bufferSize];
-        while (isRunning) {
-            for (int i = 0; i < bufferSize; i++) {
-                buffer[i] = (byte) random.nextGaussian();
-            }
-            audioTrack.write(buffer, 0, bufferSize);
-        }
-    }
-
-    public void startStop(String s) {
-        if(isRunning) stop(); else play(s);
-    }
-
-    public void stop() {
-        isRunning = false;
-    }
-
 }

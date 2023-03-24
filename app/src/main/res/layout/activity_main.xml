@@ -13,7 +13,9 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/sacramento"
         android:text="The Julia Zone"
+        android:textColor="#FF8888"
         android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:backgroundTint="#660000"
         android:fontFamily="serif"
         android:text="sleepy noise"
         android:textSize="24sp"
@@ -32,7 +35,6 @@
 
     <SeekBar
         android:id="@+id/seekBar0"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
@@ -40,18 +42,21 @@
         android:max="2"
         android:progress="2"
         android:rotation="-90"
+        android:progressTint="#660000"
+        android:thumbTint="#FF8888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
 
     <SeekBar
         android:id="@+id/seekBar1"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
         android:rotation="-90"
+        android:progressTint="#660000"
+        android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/seekBar0"
         app:layout_constraintEnd_toStartOf="@+id/seekBar2"
@@ -59,13 +64,14 @@
 
     <SeekBar
         android:id="@+id/seekBar2"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
         android:rotation="-90"
+        android:progressTint="#660000"
+        android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,13 +79,14 @@
 
     <SeekBar
         android:id="@+id/seekBar3"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
         android:rotation="-90"
+        android:progressTint="#660000"
+        android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/seekBar2"
         app:layout_constraintEnd_toStartOf="@+id/seekBar4"
@@ -87,7 +94,6 @@
 
     <SeekBar
         android:id="@+id/seekBar4"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
@@ -95,21 +101,9 @@
         android:max="2"
         android:progress="2"
         android:rotation="-90"
+        android:progressTint="#660000"
+        android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
-
-    <Button
-        android:id="@+id/pinkNoiseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:fontFamily="serif"
-        android:text="pink noise"
-        android:textSize="24sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
