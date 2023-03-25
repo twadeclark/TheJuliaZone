@@ -28,7 +28,10 @@
         android:backgroundTint="#660000"
         android:fontFamily="serif"
         android:text="sleepy noise"
+        android:textAllCaps="true"
+        android:textColor="#FF8888"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
