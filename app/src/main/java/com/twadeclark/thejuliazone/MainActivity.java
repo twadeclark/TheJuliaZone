@@ -1,4 +1,4 @@
-package com.example.thejuliazone;
+package com.twadeclark.thejuliazone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 import java.util.Random;
 

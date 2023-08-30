@@ -1,4 +1,4 @@
-package com.example.thejuliazone;
+package com.twadeclark.thejuliazone;
 
 import android.content.Context;
 

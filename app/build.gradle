@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.thejuliazone'
+    namespace 'com.twadeclark.thejuliazone'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.thejuliazone"
+        applicationId "com.twadeclark.thejuliazone"
         minSdk 24
         targetSdk 33
         versionCode 1
