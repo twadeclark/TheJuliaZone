@@ -2,6 +2,7 @@ package com.twadeclark.thejuliazone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
@@ -9,12 +10,14 @@ import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button noiseButton;
+    private TextView runStatus;
 
     SeekBar seekbar0;
     SeekBar seekbar1;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private volatile boolean isRunning = false;
     private double ma = 0;
 
+    private String offMsg = "Off. Click to start.";
+    private String onMsg = "On. Click to stop.";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         noiseButton = findViewById(R.id.noiseButton);
         noiseButton.setOnClickListener(view -> startStop("noise"));
+        noiseButton.setBackgroundColor(Color.rgb(66,0,0));
+
+        runStatus = findViewById(R.id.runStatus);
+        runStatus.setText(offMsg);
 
         seekbar0 = findViewById(R.id.seekBar0);
         seekbar1 = findViewById(R.id.seekBar1);
@@ -53,7 +63,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startStop(String s) {
-        if(isRunning) stop(); else play(s);
+
+        if(isRunning){
+            runStatus.setText(offMsg);
+            noiseButton.setBackgroundColor(Color.rgb(66,0,0));
+            stop();
+        }
+        else {
+            runStatus.setText(onMsg);
+            noiseButton.setBackgroundColor(Color.rgb(0,66,0));
+            play(s);
+        }
     }
 
     public void stop() {

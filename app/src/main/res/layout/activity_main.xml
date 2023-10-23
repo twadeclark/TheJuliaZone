@@ -7,6 +7,17 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/runStatus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Shape your noise."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +36,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#660000"
         android:fontFamily="serif"
         android:text="sleepy noise"
         android:textAllCaps="true"
@@ -44,11 +54,11 @@
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
-        android:rotation="-90"
         android:progressTint="#660000"
+        android:rotation="-90"
         android:thumbTint="#FF8888"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
+        app:layout_constraintTop_toBottomOf="@+id/runStatus" />
 
     <SeekBar
         android:id="@+id/seekBar1"
@@ -57,13 +67,13 @@
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
-        android:rotation="-90"
         android:progressTint="#660000"
+        android:rotation="-90"
         android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/seekBar0"
         app:layout_constraintEnd_toStartOf="@+id/seekBar2"
-        app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
+        app:layout_constraintStart_toEndOf="@+id/seekBar0"
+        app:layout_constraintTop_toBottomOf="@+id/runStatus" />
 
     <SeekBar
         android:id="@+id/seekBar2"
@@ -72,13 +82,13 @@
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
-        android:rotation="-90"
         android:progressTint="#660000"
+        android:rotation="-90"
         android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
+        app:layout_constraintTop_toBottomOf="@+id/runStatus" />
 
     <SeekBar
         android:id="@+id/seekBar3"
@@ -87,13 +97,13 @@
         android:layout_marginTop="32dp"
         android:max="2"
         android:progress="2"
-        android:rotation="-90"
         android:progressTint="#660000"
+        android:rotation="-90"
         android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/seekBar2"
         app:layout_constraintEnd_toStartOf="@+id/seekBar4"
-        app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
+        app:layout_constraintStart_toEndOf="@+id/seekBar2"
+        app:layout_constraintTop_toBottomOf="@+id/runStatus" />
 
     <SeekBar
         android:id="@+id/seekBar4"
@@ -103,10 +113,20 @@
         android:layout_marginEnd="8dp"
         android:max="2"
         android:progress="2"
-        android:rotation="-90"
         android:progressTint="#660000"
+        android:rotation="-90"
         android:thumbTint="#FF8888"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runStatus" />
+
+    <TextView
+        android:id="@+id/runStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Off. Click to start."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noiseButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
